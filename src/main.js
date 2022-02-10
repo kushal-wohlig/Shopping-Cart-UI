@@ -1,10 +1,33 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Vuelidate from 'vuelidate'
-Vue.use(Vuelidate)
+import VueRouter from 'vue-router'
+
+import LoginForm from './components/LoginForm.vue';
+import RegisterForm from './components/RegisterForm.vue';
+import HomeComponent from './components/HomeComponent.vue';
+Vue.use(Vuelidate);
+Vue.use(VueRouter);
 
 Vue.config.productionTip = false
 
+//App.use(router);
+const router = new VueRouter({
+  mode:"history",
+  routes:[
+    {path:'/login', component:LoginForm}, //our-domain/login
+    {path:'/', component:RegisterForm},
+    {path:'/home', component:HomeComponent}
+  ],
+});
+
+// console.log(router);
+
+
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')
+
+
+

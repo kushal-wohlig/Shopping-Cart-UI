@@ -1,4 +1,6 @@
 <template>
+<div class="register">
+  <h1> Sign up Form </h1>
   <form method="POST"  @submit.prevent="submit">
         <label for="fname">First Name: </label><br>
         <input type="text" name="fname" v-model.trim="$v.fname.$model"  placeholder="Your First Name">
@@ -31,7 +33,7 @@
         <div class="error" v-if="!$v.password.valid ">Minimum Length of password should be 8 and contain atleast 1 Upercase, 1 lowercase and 1 special character</div>
         <br>
         <br>
-        <a href="wwww.google.com">
+        <a href="/login">
           <button class="button" type="submit" :disabled="submitStatus === 'PENDING'">Submit!</button>
         </a>
         <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your submission!</p>
@@ -39,6 +41,10 @@
         <p class="typo__p" v-if="submitStatus === 'PENDING'"> Sending... </p>
     
   </form>
+  <br>
+  <br>
+  <a href="/login"> Click here for Login</a>
+</div>
 </template>
 
 <script>

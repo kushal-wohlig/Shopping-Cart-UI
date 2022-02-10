@@ -2,8 +2,12 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-     <h1> Sign up Form </h1>
-     <register-form/>
+     
+    <router-view></router-view>
+<!-- 
+     <login-form/> -->
+
+     
   </div>
  
  
@@ -11,19 +15,20 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import RegisterForm from './components/RegisterForm.vue'
+// import LoginForm from './components/LoginForm.vue'
+// import RegisterForm from './components/RegisterForm.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    RegisterForm
+    // RegisterForm,
+    // LoginForm
   }
 }
 </script>
 
-<styl
-    RegisterForme>
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
