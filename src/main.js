@@ -6,6 +6,8 @@ import VueRouter from 'vue-router'
 import LoginForm from './components/LoginForm.vue';
 import RegisterForm from './components/RegisterForm.vue';
 import HomeComponent from './components/HomeComponent.vue';
+import ProductPage from './components/ProductPage.vue';
+import CartPage from './components/CartPage.vue';
 Vue.use(Vuelidate);
 Vue.use(VueRouter);
 
@@ -17,7 +19,9 @@ const router = new VueRouter({
   routes:[
     {path:'/login', component:LoginForm}, //our-domain/login
     {path:'/', component:RegisterForm},
-    {path:'/home', component:HomeComponent}
+    {path:'/home', component:HomeComponent},
+    {path:'/products', component:ProductPage},
+    {path:'/mycart',component:CartPage}
   ],
 });
 

@@ -48,7 +48,7 @@ export default {
       {
         if(this.submitStatus==='OK')
         {
-          this.$router.push('/home')
+          this.$router.push('/products') 
         }
         else
         {
@@ -68,13 +68,15 @@ export default {
         headers: {
           'Content-Type': 'application/json',
         },
-        url: 'http://localhost:3000/login',
+        url: 'http://localhost:3000/customer/login',
         data: { 
             email:this.email,
             password:this.password }
       }
       const data = await axios.request(options)
-      console.log(data.status)
+
+      localStorage.setItem("CustomerId",data.data)
+      console.log(data)
         // this.submitStatus = 'PENDING'
         this.submitStatus = 'OK'
           // router.push("/home");

@@ -2,6 +2,10 @@
 <div class="register">
   <h1> Sign up Form </h1>
   <form method="POST"  @submit.prevent="submit">
+       <label for="CustomerId">CustomerId: </label><br>
+        <input type="text" name="CustomerId" v-model.trim="$v.CustomerId.$model"  placeholder="Your Customer ID">
+         <br>
+        <br>
         <label for="fname">First Name: </label><br>
         <input type="text" name="fname" v-model.trim="$v.fname.$model"  placeholder="Your First Name">
          <div class="error" v-if="!$v.fname.required">Field is required</div><br>
@@ -57,6 +61,7 @@ export default {
  },
   data() {
     return {
+        CustomerId:'',
         fname:'',
         lname:'',
         phone_no:0,
@@ -74,22 +79,22 @@ export default {
       } else {
         // do your submit logic here
         // axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
-const options = {
+      const options = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': 'http://localhost:3000/signup',
-          // 'Access-Control-Allow-Methods': 'POST',
-          // 'Access-Control-Allow-Credentials': 'true'
         },
-        url: 'http://localhost:3000/signup/',
-        data: { fname:this.fname,
+        url: 'http://localhost:3000/customer/addCustomer',
+        data: { 
+            CustomerId:this.CustomerId,
+            fname:this.fname,
             lname:this.lname,
             phone_no:this.phone_no,
             email:this.email,
             password:this.password },
       }
       const data = await axios.request(options)
+
       console.log(data)
         // fetch(' http://localhost:3000/signup',{
         //   method:'POST',
@@ -115,6 +120,9 @@ const options = {
     
   },
   validations: {
+    CustomerId:{
+      required,
+    },
       fname:{
           required,
           alpha
